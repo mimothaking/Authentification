@@ -1,18 +1,32 @@
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
+import { auth } from '../firebase/firebase'
 
-const loginScreen = () => {
+const LoginScreen = () => {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSignUp = () =>{
+        auth.createUserWithEmailAndPassword(email, password).then(userCredentials => 
+            {
+                const user = userCredentials.user;
+                console.log(user.email)
+            })
+            .catch(error => alert(error.message))
+    }
+
   return (
     <KeyboardAvoidingView
     style={styles.container}
     behavior="padding">
       <View style={styles.inputContainer}>
         <TextInput placeholder='Email' 
-        //value={ } onChangeText={Text =>}
+        value={email} onChangeText={text => setEmail(text)}
         style={styles.input}
         />
         <TextInput placeholder='Password'
-        //value={ } onChangeText={Text =>}
+        value={password} onChangeText={text => setPassword(text)}
         style={styles.input}
         secureTextEntry
         />
@@ -27,7 +41,7 @@ const loginScreen = () => {
         <Text style={styles.buttonText}>LogIn</Text>
       </TouchableOpacity>
       <TouchableOpacity
-       onPress={() => { }}
+       onPress={handleSignUp}
        style={[styles.button, styles.buttonOutline]}
        >
        <Text style={styles.buttonOutlineText}>Register</Text>
@@ -38,7 +52,7 @@ const loginScreen = () => {
   )
 }
 
-export default loginScreen
+export default LoginScreen
 
 const styles = StyleSheet.create({
     container: {
