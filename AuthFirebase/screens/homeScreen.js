@@ -16,7 +16,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Current user : {auth.currentUser?.email}</Text>
+      <Text style={styles.username}>Welcome, {auth.currentUser?.email.substring(0, auth.currentUser?.email.lastIndexOf("@"))}</Text>
       <TouchableOpacity
       style={styles.button}
       onPress={handleLogOut}
@@ -31,21 +31,25 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        justifyContent: 'center',
-        alignItems: 'center'
+        
     },
     button: {
         backgroundColor: '#b4c4d4',
         width: "60%",
-        padding: 15,
+        padding: 10,
         borderRadius: 10,
         alignItems: 'center',
-        marginTop: 40,
+        marginTop: 590,
+        marginLeft: 75,
     },
     buttonText: {
         color: 'white',
         fontWeight: '700',
         fontSize: 16
     },
+    username: {
+      fontSize: 14,
+      marginTop: '10%',
+      marginLeft: '65%'
+    }
 })
