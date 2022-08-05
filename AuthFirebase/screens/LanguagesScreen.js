@@ -15,6 +15,12 @@ const LanguagesScreen = () => {
 
     }
 
+    const handleFr = () => {
+
+        navigation.navigate("Connection")
+
+    }
+
 
   return (
 
@@ -27,7 +33,7 @@ const LanguagesScreen = () => {
               <Text style={styles.buttonText}>English</Text>
           </TouchableOpacity>
           <TouchableOpacity
-              onPress={() => { }}
+              onPress={handleFr}
               style={[styles.button, styles.buttonOutline]}
           >
               <Text style={styles.buttonOutlineText}>French</Text>
