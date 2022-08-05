@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { auth } from '../firebase/firebase'
 import { useNavigation } from '@react-navigation/native'
@@ -22,6 +22,16 @@ const HomeScreen = () => {
         style={styles.buttonChoice}
         onPress={() => {}}
       >
+        <ImageBackground
+          source={{ uri: 'https://www.plascilab.fr/wp-content/uploads/2022/01/istockphoto-477110708-612x612-1.jpg' }}
+          imageStyle={{ borderRadius: 10}}
+          style={{
+            height: 122,
+            width: 180,
+            position: 'absolute',
+          }}
+        >
+        </ImageBackground>
         <Text style={styles.buttonChoiceText}>Weather</Text>
       </TouchableOpacity>
 
@@ -29,6 +39,16 @@ const HomeScreen = () => {
         style={styles.buttonChoice2}
         onPress={() => { }}
       >
+        <ImageBackground
+          source={{ uri: 'https://t3.ftcdn.net/jpg/02/55/81/40/360_F_255814073_eVeqoLhJQ31uBZ3fcgaaRcYgEtYDkYkF.jpg' }}
+          imageStyle={{ borderRadius: 10 }}
+          style={{
+            height: 122,
+            width: 180,
+            position: 'absolute',
+          }}
+        >
+        </ImageBackground>
         <Text style={styles.buttonChoiceText2}>Quiz Game</Text>
       </TouchableOpacity>
 
@@ -54,7 +74,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         alignItems: 'center',
-        marginTop: 190,
+        marginTop: 150,
         marginLeft: 75,
     },
     buttonText: {
@@ -73,13 +93,15 @@ const styles = StyleSheet.create({
     padding: 50,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 90,
+    marginTop: 120,
     marginLeft: 88,
+    justifyContent: "center",
+    alignItems: "center"
   },
   buttonChoiceText: {
     color: 'white',
     fontWeight: '700',
-    fontSize: 16
+    fontSize: 16,
   },
   buttonChoice2: {
     backgroundColor: '#b4c4d4',
