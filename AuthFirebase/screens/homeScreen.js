@@ -26,8 +26,8 @@ const HomeScreen = () => {
           source={{ uri: 'https://www.plascilab.fr/wp-content/uploads/2022/01/istockphoto-477110708-612x612-1.jpg' }}
           imageStyle={{ borderRadius: 10}}
           style={{
-            height: 122,
-            width: 180,
+            height: 135,
+            width: 255,
             position: 'absolute',
           }}
         >
@@ -43,13 +43,31 @@ const HomeScreen = () => {
           source={{ uri: 'https://t3.ftcdn.net/jpg/02/55/81/40/360_F_255814073_eVeqoLhJQ31uBZ3fcgaaRcYgEtYDkYkF.jpg' }}
           imageStyle={{ borderRadius: 10 }}
           style={{
-            height: 122,
-            width: 180,
+            height: 135,
+            width: 255,
             position: 'absolute',
           }}
         >
         </ImageBackground>
         <Text style={styles.buttonChoiceText2}>Quiz Game</Text>
+      </TouchableOpacity>
+
+
+      <TouchableOpacity
+        style={styles.buttonChoice3}
+        onPress={() => { }}
+      >
+        <ImageBackground
+          source={{ uri: 'https://media.istockphoto.com/photos/note-pad-and-pencil-picture-id1271863211?b=1&k=20&m=1271863211&s=170667a&w=0&h=j0qujbTbIX3bLDADBzk352ku8XW5NxA6gNw13Z60Pdw=' }}
+          imageStyle={{ borderRadius: 10 }}
+          style={{
+            height: 135,
+            width: 255,
+            position: 'absolute',
+          }}
+        >
+        </ImageBackground>
+        <Text style={styles.buttonChoiceText3}>Coming Soon</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -74,7 +92,7 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 10,
         alignItems: 'center',
-        marginTop: 150,
+        marginTop: 80,
         marginLeft: 75,
     },
     buttonText: {
@@ -89,12 +107,12 @@ const styles = StyleSheet.create({
     },
   buttonChoice: {
     backgroundColor: '#b4c4d4',
-    width: "50%",
+    width: "70%",
     padding: 50,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 120,
-    marginLeft: 88,
+    marginTop: 60,
+    marginLeft: 56,
     justifyContent: "center",
     alignItems: "center"
   },
@@ -105,16 +123,32 @@ const styles = StyleSheet.create({
   },
   buttonChoice2: {
     backgroundColor: '#b4c4d4',
-    width: "50%",
+    width: "70%",
     padding: 50,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 90,
-    marginLeft: 88,
+    marginTop: 50,
+    marginLeft: 56,
   },
   buttonChoiceText2: {
     color: 'white',
     fontWeight: '700',
     fontSize: 16
+  },
+  buttonChoice3: {
+    backgroundColor: '#b4c4d4',
+    width: "70%",
+    padding: 50,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 60,
+    marginLeft: 56,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonChoiceText3: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 16,
   },
 })
