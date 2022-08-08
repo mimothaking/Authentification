@@ -6,9 +6,11 @@ import HomeScreen from './screens/HomeScreen';
 import LanguagesScreen from './screens/LanguagesScreen';
 import PageConnection from './screens/PageConnection';
 import PageAcceuil from './screens/PageAcceuil';
+import WeatherScreen from './screens/WeatherScreen';
 
 
 const Stack = createNativeStackNavigator();
+
 
 
 export default function App() {
@@ -19,6 +21,7 @@ export default function App() {
       <Stack.Screen options={{headerShown: false }} name="Connection" component={PageConnection} />
       <Stack.Screen options={{headerShown: false }} name="Login" component={LoginScreen} />
       <Stack.Screen options={{headerShown: false }} name="Home" component={HomeScreen} />
+      <Stack.Screen options={{ headerShown: false }} name="Weather" component={WeatherScreen} />
       <Stack.Screen options={{headerShown: false }} name="Acceuil" component={PageAcceuil} />
       </Stack.Navigator>
     </NavigationContainer>

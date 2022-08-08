@@ -3,7 +3,10 @@ import React from 'react'
 import { auth } from '../firebase/firebase'
 import { useNavigation } from '@react-navigation/native'
 
+
 const HomeScreen = () => {
+
+  
 
     const navigation = useNavigation()
 
@@ -20,7 +23,7 @@ const HomeScreen = () => {
 
       <TouchableOpacity
         style={styles.buttonChoice}
-        onPress={() => {}}
+        onPress={() => {navigation.navigate('Weather')}}
       >
         <ImageBackground
           source={{ uri: 'https://www.plascilab.fr/wp-content/uploads/2022/01/istockphoto-477110708-612x612-1.jpg' }}
@@ -53,7 +56,7 @@ const HomeScreen = () => {
       </TouchableOpacity>
 
 
-      <TouchableOpacity
+      <TouchableOpacity disabled={true}
         style={styles.buttonChoice3}
         onPress={() => { }}
       >
