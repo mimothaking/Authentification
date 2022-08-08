@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
         color: 'grey',
         fontWeight: '800',
         fontSize: 28,
-        marginTop: 80,
+        marginTop: 170,
         
     },
     today:{
-        marginBottom: 100
+        
     },
     temp:{
         fontWeight: '500',
