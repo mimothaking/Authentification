@@ -5,7 +5,7 @@ import LottieView from 'lottie-react-native'
 const WeatherLoader = () => {
   return (
     <View style={[StyleSheet.absoluteFillObject]}>
-      <LottieView source={require('../Images/1173-sun-burst-weather-icon.json')} autoPlay loop></LottieView>
+      <LottieView source={require('../Images/1173-sun-burst-weather-icon.json')} autoPlay loop />
     </View>
   )
 }
