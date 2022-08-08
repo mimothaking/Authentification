@@ -2,6 +2,7 @@ import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, Vi
 import React, { useEffect, useState } from 'react'
 import { auth } from '../firebase/firebase'
 import { useNavigation } from '@react-navigation/core'
+import LottieView from 'lottie-react-native'
 
 const LoginScreen = () => {
 
@@ -37,9 +38,13 @@ const LoginScreen = () => {
     }
 
   return (
+    
     <KeyboardAvoidingView
     style={styles.container}
     behavior={Platform.OS === "ios" ? "padding" : "height"}>
+          <View style={[StyleSheet.absoluteFillObject, styles.anim]}>
+              <LottieView source={require('../Images/lf20_odojxouu.json')} autoPlay loop />
+          </View>
       <View style={styles.inputContainer}>
         <TextInput placeholder='Email' 
         value={email} onChangeText={text => setEmail(text)}
@@ -68,6 +73,7 @@ const LoginScreen = () => {
        </TouchableOpacity>
 
       </View>
+          
       </KeyboardAvoidingView>
   )
 }
@@ -118,5 +124,11 @@ const styles = StyleSheet.create({
         color: '#b4c4d4',
         fontWeight: '700',
         fontSize: 16
+    },
+    anim:{
+        marginBottom: 450,
+        width: 300,
+        height: 300,
+        marginLeft: 40
     }
 })

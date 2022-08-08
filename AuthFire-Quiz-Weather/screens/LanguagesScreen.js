@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-
+import LottieView from 'lottie-react-native'
 
 
 
@@ -40,6 +40,9 @@ const LanguagesScreen = () => {
           </TouchableOpacity>
 
       </View>
+          <View style={[StyleSheet.absoluteFillObject, styles.anim]}>
+              <LottieView source={require('../Images/72342-welcome.json')} autoPlay loop />
+          </View>
     </View>
   )
 }
@@ -80,5 +83,10 @@ const styles = StyleSheet.create({
         color: '#b4c4d4',
         fontWeight: '700',
         fontSize: 16
+    },
+    anim:{
+        marginTop: 450,
+        width: 350,
+        height: 350
     }
 })

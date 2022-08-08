@@ -4,7 +4,7 @@ import * as Location from "expo-location"
 import axios from 'axios'
 import CurrentWeather from '../components/CurrentWeather'
 import WeatherLoader from '../components/WeatherLoader'
-import { ForecastWeather } from '../components/ForecastWeather'
+import ForecastWeather  from '../components/ForecastWeather'
 
 const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=810b824e9b9d3466bebfd2ba8cc79146&lang=en&units=metric`
 

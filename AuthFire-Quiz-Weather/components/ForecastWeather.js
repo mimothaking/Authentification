@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 import { enUS } from 'date-fns/locale'
 import Weather from './Weather'
 
-export const ForecastWeather =({data}) => {
+export default function ForecastWeather ({data}) {
 
     const [forecasts, setForecasts] = useState([])
 
