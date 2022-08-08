@@ -51,6 +51,7 @@ export default LanguagesScreen
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: '#fff',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     button: {
-        backgroundColor: '#b4c4d4',
+        backgroundColor: '#111212',
         width: "100%",
         padding: 15,
         borderRadius: 10,
@@ -76,11 +77,11 @@ const styles = StyleSheet.create({
     buttonOutline: {
         backgroundColor: 'white',
         marginTop: 5,
-        borderColor: '#b4c4d4',
+        borderColor: '#111212',
         borderWidth: 2,
     },
     buttonOutlineText: {
-        color: '#b4c4d4',
+        color: '#111212',
         fontWeight: '700',
         fontSize: 16
     },

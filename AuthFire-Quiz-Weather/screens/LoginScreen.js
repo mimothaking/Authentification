@@ -8,6 +8,7 @@ const LoginScreen = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [loading, setLoading] = useState(true)
 
     const navigation = useNavigation()
 
@@ -15,6 +16,7 @@ const LoginScreen = () => {
        const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
                 navigation.navigate("Home")
+                
             }
         })
         return unsubscribe
@@ -32,6 +34,7 @@ const LoginScreen = () => {
     const handleLogin = () => {
         auth.signInWithEmailAndPassword(email, password).then(userCredentials => {
             const user = userCredentials.user;
+            setLoading(true)
             console.log('LoggedIn with :',user.email)
         })
             .catch(error => alert(error.message))
@@ -41,7 +44,7 @@ const LoginScreen = () => {
     
     <KeyboardAvoidingView
     style={styles.container}
-    behavior={Platform.OS === "ios" ? "padding" : "height"}>
+    behavior={Platform.OS === "ios" ? "padding" : "height"}> 
           <View style={[StyleSheet.absoluteFillObject, styles.anim]}>
               <LottieView source={require('../Images/lf20_odojxouu.json')} autoPlay loop />
           </View>
@@ -60,7 +63,7 @@ const LoginScreen = () => {
 
       <View style={styles.buttonContainer}>
       <TouchableOpacity
-      onPress={handleLogin}
+      onPress={[handleLogin , ]}
       style={styles.button}
       >
         <Text style={styles.buttonText}>LogIn</Text>
@@ -73,7 +76,9 @@ const LoginScreen = () => {
        </TouchableOpacity>
 
       </View>
-          
+          <View style={[StyleSheet.absoluteFillObject, styles.anim2]}>
+              <LottieView source={require('../Images/lf20_l66ml93e.json')} autoPlay loop />
+          </View>
       </KeyboardAvoidingView>
   )
 }
@@ -82,6 +87,7 @@ export default LoginScreen
 
 const styles = StyleSheet.create({
     container: {
+        backgroundColor: '#fff',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
@@ -90,7 +96,7 @@ const styles = StyleSheet.create({
         width: '80%'
     },
     input: {
-        backgroundColor: 'white',
+        backgroundColor: '#f7f8f8',
         paddingHorizontal: 15,
         paddingVertical: 10,
         borderRadius: 10,
@@ -103,7 +109,7 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
     button: {
-        backgroundColor: '#b4c4d4',
+        backgroundColor: '#111212',
         width: "100%",
         padding: 15,
         borderRadius: 10,
@@ -117,11 +123,11 @@ const styles = StyleSheet.create({
     buttonOutline: {
         backgroundColor: 'white',
         marginTop: 5,
-        borderColor: '#b4c4d4',
+        borderColor: '#111212',
         borderWidth: 2,
     },
     buttonOutlineText: {
-        color: '#b4c4d4',
+        color: '#111212',
         fontWeight: '700',
         fontSize: 16
     },
@@ -130,5 +136,11 @@ const styles = StyleSheet.create({
         width: 300,
         height: 300,
         marginLeft: 40
+    },
+    anim2: {
+        marginTop: 500,
+        width: 250,
+        height: 250,
+        marginLeft: 60
     }
 })

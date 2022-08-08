@@ -87,10 +87,11 @@ export default HomeScreen
 
 const styles = StyleSheet.create({
     container:{
-        
+        backgroundColor: '#fff',
+        paddingBottom: 30
     },
     button: {
-        backgroundColor: '#b4c4d4',
+      backgroundColor: '#111212',
         width: "60%",
         padding: 10,
         borderRadius: 10,
