@@ -27,7 +27,7 @@ const HomeScreen = () => {
         onPress={() => {navigation.navigate('Weather')}}
       >
         <ImageBackground
-          source={{ uri: 'https://www.plascilab.fr/wp-content/uploads/2022/01/istockphoto-477110708-612x612-1.jpg' }}
+          source={{ uri: 'https://cdn.dribbble.com/users/778661/screenshots/2714153/weatherc.png' }}
           imageStyle={{ borderRadius: 10}}
           style={{
             height: 135,
@@ -35,6 +35,15 @@ const HomeScreen = () => {
             position: 'absolute',
           }}
         >
+          <View style={[StyleSheet.absoluteFillObject, styles.anim3]}>
+            <LottieView source={require('../Images/4800-weather-partly-cloudy.json')} autoPlay />
+          </View>
+          <View style={[StyleSheet.absoluteFillObject, styles.anim4]}>
+            <LottieView source={require('../Images/4803-weather-storm.json')} autoPlay />
+          </View>
+          <View style={[StyleSheet.absoluteFillObject, styles.anim5]}>
+            <LottieView source={require('../Images/4806-weather-windy.json')} autoPlay />
+          </View>
         </ImageBackground>
         <Text style={styles.buttonChoiceText}>Weather</Text>
       </TouchableOpacity>
@@ -129,9 +138,10 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   buttonChoiceText: {
-    color: 'white',
+    color: '#fff',
     fontWeight: '700',
     fontSize: 16,
+    fontWeight:  '700',
   },
   buttonChoice2: {
     backgroundColor: '#b4c4d4',
@@ -174,5 +184,20 @@ const styles = StyleSheet.create({
     marginTop: 50,
     height: 100,
     width: 100
+  },
+  anim3:{
+    width: 50,
+    height: 50,
+    marginLeft: 20
+  },
+  anim4:{
+    width: 50,
+    height: 50,
+    marginLeft: 187
+  },
+  anim5:{
+    width: 50,
+    height: 50,
+    marginLeft: 105
   }
 })
