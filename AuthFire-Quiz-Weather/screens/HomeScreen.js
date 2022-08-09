@@ -2,6 +2,7 @@ import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react
 import React from 'react'
 import { auth } from '../firebase/firebase'
 import { useNavigation } from '@react-navigation/native'
+import LottieView from 'lottie-react-native'
 
 
 const HomeScreen = () => {
@@ -69,8 +70,15 @@ const HomeScreen = () => {
             position: 'absolute',
           }}
         >
+          <View style={[StyleSheet.absoluteFillObject, styles.anim2]}>
+            <LottieView source={require('../Images/67490-coming-soon.json')} autoPlay />
+          </View>
         </ImageBackground>
-        <Text style={styles.buttonChoiceText3}>Coming Soon</Text>
+        <View style={[StyleSheet.absoluteFillObject, styles.anim]}>
+          <LottieView source={require('../Images/100006-locker.json')} autoPlay />
+        </View>
+       
+       
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -145,7 +153,7 @@ const styles = StyleSheet.create({
     padding: 50,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 60,
+    marginTop: 75,
     marginLeft: 56,
     justifyContent: "center",
     alignItems: "center"
@@ -154,5 +162,17 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '700',
     fontSize: 16,
+    marginLeft: 50
   },
+  anim:{
+    marginLeft: 150,
+    height: 70,
+    width: 70
+  },
+  anim2:{
+    marginLeft: 140,
+    marginTop: 50,
+    height: 100,
+    width: 100
+  }
 })

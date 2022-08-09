@@ -34,7 +34,6 @@ const LoginScreen = () => {
     const handleLogin = () => {
         auth.signInWithEmailAndPassword(email, password).then(userCredentials => {
             const user = userCredentials.user;
-            setLoading(true)
             console.log('LoggedIn with :',user.email)
         })
             .catch(error => alert(error.message))
@@ -63,7 +62,7 @@ const LoginScreen = () => {
 
       <View style={styles.buttonContainer}>
       <TouchableOpacity
-      onPress={[handleLogin , ]}
+      onPress={handleLogin}
       style={styles.button}
       >
         <Text style={styles.buttonText}>LogIn</Text>
@@ -74,11 +73,7 @@ const LoginScreen = () => {
        >
        <Text style={styles.buttonOutlineText}>Register</Text>
        </TouchableOpacity>
-
       </View>
-          <View style={[StyleSheet.absoluteFillObject, styles.anim2]}>
-              <LottieView source={require('../Images/lf20_l66ml93e.json')} autoPlay loop />
-          </View>
       </KeyboardAvoidingView>
   )
 }

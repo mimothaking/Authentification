@@ -40,13 +40,14 @@ const LanguagesScreen = () => {
           </TouchableOpacity>
 
       </View>
-          <View style={[StyleSheet.absoluteFillObject, styles.anim]}>
-              <LottieView source={require('../Images/72342-welcome.json')} autoPlay loop />
+      { /*   <View style={[StyleSheet.absoluteFillObject, styles.anim]}>
+              <LottieView source={require('../Images/7565-waving-american-flag.json')} autoPlay />
           </View>
+      */}
     </View>
   )
 }
-
+    
 export default LanguagesScreen
 
 const styles = StyleSheet.create({
@@ -86,8 +87,9 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     anim:{
-        marginTop: 450,
-        width: 350,
-        height: 350
+        marginTop: 335,
+        marginLeft: 80,
+        width: 50,
+        height: 50
     }
 })
