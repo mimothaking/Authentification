@@ -1,11 +1,16 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
-import LottieView from 'lottie-react-native'
+import { LogBox } from 'react-native';
+
+
+LogBox.ignoreLogs(['Warning: Async Storage has been extracted from react-native core']);
 
 
 
 const LanguagesScreen = () => {
+
+    
 
     const navigation = useNavigation()
 
