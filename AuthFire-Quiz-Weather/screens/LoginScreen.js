@@ -45,7 +45,9 @@ const LoginScreen = () => {
             .catch(error => alert(error.message))
     }
 
+    
     const [appIsReady, setAppIsReady] = useState(false);
+
 
     useEffect(() => {
         async function prepare() {
@@ -105,10 +107,7 @@ const LoginScreen = () => {
         placeholderTextColor="#2ea3ff"
         secureTextEntry
         />
-        
       </View>
-
-      
       <View style={styles.buttonContainer}>
       <TouchableOpacity
       onPress={handleLogin}
@@ -128,7 +127,6 @@ const LoginScreen = () => {
               <Text style={{ alignSelf: 'center', paddingHorizontal: 5, fontSize: 16, color: '#00ffdd' }}>or</Text>
               <View style={{ backgroundColor: '#00ffdd', height: 2, flex: 1, alignSelf: 'center' }} />
           </View>
-
           <View style={styles.buttonContainer2}>
               <TouchableOpacity
                   onPress={() => {}}
@@ -149,9 +147,7 @@ const LoginScreen = () => {
                   </View>
               </TouchableOpacity>
           </View>
-              
       </KeyboardAvoidingView>
-      
   )
 }
 
