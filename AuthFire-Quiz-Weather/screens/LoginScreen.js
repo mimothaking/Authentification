@@ -1,8 +1,14 @@
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from 'react-native'
+import React, { useEffect, useState, useCallback } from 'react'
 import { auth } from '../firebase/firebase'
 import { useNavigation } from '@react-navigation/core'
 import LottieView from 'lottie-react-native'
+import Entypo from '@expo/vector-icons/Entypo';
+import * as SplashScreen from 'expo-splash-screen';
+import * as Font from 'expo-font';
+
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
 
 const LoginScreen = () => {
 
@@ -39,42 +45,92 @@ const LoginScreen = () => {
             .catch(error => alert(error.message))
     }
 
+    const [appIsReady, setAppIsReady] = useState(false);
+
+    useEffect(() => {
+        async function prepare() {
+            try {
+                // Pre-load fonts, make any API calls you need to do here
+                await Font.loadAsync(Entypo.font);
+                // Artificially delay for two seconds to simulate a slow loading
+                // experience. Please remove this if you copy and paste the code!
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            } catch (e) {
+                console.warn(e);
+            } finally {
+                // Tell the application to render
+                setAppIsReady(true);
+            }
+        }
+
+        prepare();
+    }, []);
+
+
+    const onLayoutRootView = useCallback(async () => {
+        if (appIsReady) {
+            // This tells the splash screen to hide immediately! If we call this after
+            // `setAppIsReady`, then we may see a blank screen while the app is
+            // loading its initial state and rendering its first pixels. So instead,
+            // we hide the splash screen once we know the root view has already
+            // performed layout.
+            await SplashScreen.hideAsync();
+        }
+    }, [appIsReady]);
+
+    if (!appIsReady) {
+        return null;
+    }
+
+
   return (
     
     <KeyboardAvoidingView
-    style={styles.container}
+    
     behavior={Platform.OS === "ios" ? "padding" : "height"}> 
-          <View style={[StyleSheet.absoluteFillObject, styles.anim]}>
-              <LottieView source={require('../Images/lf20_odojxouu.json')} autoPlay loop />
+          <View style={styles.logo}>
+              <Image source={require('../assets/eaglocLogo.png')}
+                  style={{ width: 270, height: 270 }} />
           </View>
-      <View style={styles.inputContainer}>
+      <View style={styles.inputContainer}
+            onLayout={onLayoutRootView}>
         <TextInput placeholder='Email' 
         value={email} onChangeText={text => setEmail(text)}
         style={styles.input}
+        placeholderTextColor="#2ea3ff"
         />
         <TextInput placeholder='Password'
         value={password} onChangeText={text => setPassword(text)}
         style={styles.input}
+        placeholderTextColor="#2ea3ff"
         secureTextEntry
         />
         
       </View>
 
+      
       <View style={styles.buttonContainer}>
       <TouchableOpacity
       onPress={handleLogin}
       style={styles.button}
       >
-        <Text style={styles.buttonText}>LogIn</Text>
+        <Text style={styles.buttonText}>Log in</Text>
       </TouchableOpacity>
       <TouchableOpacity
        onPress={handleSignUp}
-       style={[styles.button, styles.buttonOutline]}
+       style={[styles.button2, styles.buttonOutline]}
        >
-       <Text style={styles.buttonOutlineText}>Register</Text>
+       <Text style={styles.buttonOutlineText}>Sign up</Text>
        </TouchableOpacity>
       </View>
+          <View style={{ flexDirection: 'row', marginTop: 38, width: '90%', marginLeft: 20 }}>
+              <View style={{ backgroundColor: '#00ffdd', height: 2, flex: 1, alignSelf: 'center'}} />
+              <Text style={{ alignSelf: 'center', paddingHorizontal: 5, fontSize: 16, color: '#00ffdd' }}>or</Text>
+              <View style={{ backgroundColor: '#00ffdd', height: 2, flex: 1, alignSelf: 'center' }} />
+          </View>
+              
       </KeyboardAvoidingView>
+      
   )
 }
 
@@ -88,42 +144,56 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     inputContainer: {
-        width: '80%'
+        width: '90%',
     },
     input: {
         backgroundColor: '#f7f8f8',
         paddingHorizontal: 15,
         paddingVertical: 10,
         borderRadius: 10,
-        marginTop: 5,
+        marginTop: 2,
+        marginLeft: 40,
+        marginBottom: 14,
+        borderColor: '#2ea3ff',
+        borderWidth: 1.5,
+        height: 42
     },
     buttonContainer: {
-        width: '60%',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 40
+        width: '37%',
+        height: 40,
+        marginTop: 12,
+        flexDirection: 'row',
+        marginLeft: 26,
+        marginRight: 20
     },
     button: {
-        backgroundColor: '#111212',
+        backgroundColor: '#2ea3ff',
         width: "100%",
-        padding: 15,
+        marginLeft: 15,
+        padding: 8,
         borderRadius: 10,
-        alignItems: 'center'
+        alignItems: 'center',
+    },
+    button2: {
+        backgroundColor: '#fff',
+        width: "100%",
+        marginLeft: 15,
+        padding: 8,
+        borderRadius: 10,
+        alignItems: 'center',
     },
     buttonText: {
         color: 'white',
-        fontWeight: '700',
+        fontWeight: '900',
         fontSize: 16
     },
     buttonOutline: {
-        backgroundColor: 'white',
-        marginTop: 5,
-        borderColor: '#111212',
-        borderWidth: 2,
+        borderColor: '#2ea3ff',
+        borderWidth: 1.5,
     },
     buttonOutlineText: {
-        color: '#111212',
-        fontWeight: '700',
+        color: '#2ea3ff',
+        fontWeight: '900',
         fontSize: 16
     },
     anim:{
@@ -137,5 +207,9 @@ const styles = StyleSheet.create({
         width: 250,
         height: 250,
         marginLeft: 60
+    },
+    logo:{
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
