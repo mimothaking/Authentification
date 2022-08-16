@@ -86,12 +86,12 @@ const LoginScreen = () => {
   return (
     
     <KeyboardAvoidingView
-    
     behavior={Platform.OS === "ios" ? "padding" : "height"}> 
           <View style={styles.logo}>
               <Image source={require('../assets/eaglocLogo.png')}
                   style={{ width: 270, height: 270 }} />
           </View>
+          <Text style={styles.loginText}>Login to your account </Text>
       <View style={styles.inputContainer}
             onLayout={onLayoutRootView}>
         <TextInput placeholder='Email' 
@@ -164,6 +164,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    loginText:{
+        textAlign: 'center',
+        marginBottom: 30,
+        color: '#2ea3ff',
+        fontSize: 20,
+        fontWeight: '700'
+    },
     inputContainer: {
         width: '90%',
     },
@@ -171,12 +178,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#f7f8f8',
         paddingHorizontal: 15,
         paddingVertical: 10,
-        borderRadius: 10,
+        borderRadius: 5,
         marginTop: 2,
         marginLeft: 40,
         marginBottom: 14,
         borderColor: '#2ea3ff',
-        borderWidth: 1.5,
+        borderWidth: 1,
         height: 42
     },
     buttonContainer: {
@@ -196,7 +203,7 @@ const styles = StyleSheet.create({
         width: "100%",
         marginLeft: 15,
         padding: 8,
-        borderRadius: 10,
+        borderRadius: 5,
         alignItems: 'center',
     },
     button2: {
@@ -204,14 +211,14 @@ const styles = StyleSheet.create({
         width: "100%",
         marginLeft: 15,
         padding: 8,
-        borderRadius: 10,
+        borderRadius: 5,
         alignItems: 'center',
     },
     button3: {
         backgroundColor: '#2ea3ff',
         paddingHorizontal: 15,
         paddingVertical: 10,
-        borderRadius: 10,
+        borderRadius: 5,
         marginTop: 2,
         marginLeft: 40,
         marginBottom: 14,
@@ -240,6 +247,6 @@ const styles = StyleSheet.create({
     },
     logo:{
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 })
