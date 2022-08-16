@@ -128,6 +128,27 @@ const LoginScreen = () => {
               <Text style={{ alignSelf: 'center', paddingHorizontal: 5, fontSize: 16, color: '#00ffdd' }}>or</Text>
               <View style={{ backgroundColor: '#00ffdd', height: 2, flex: 1, alignSelf: 'center' }} />
           </View>
+
+          <View style={styles.buttonContainer2}>
+              <TouchableOpacity
+                  onPress={() => {}}
+                  style={styles.button3}
+              >
+                  <Text style={styles.buttonText}>Log in with Facebook</Text>
+                  <View style={[StyleSheet.absoluteFillObject, styles.anim1]}>
+                      <LottieView source={require('../Images/90970-facebook-animated-icon.json')} autoPlay />
+                  </View>
+              </TouchableOpacity>
+              <TouchableOpacity
+                  onPress={() => { }}
+                  style={[styles.button3]}
+              >
+                  <Text style={styles.buttonText}>Log in with Google</Text>
+                  <View style={[StyleSheet.absoluteFillObject, styles.anim1]}>
+                      <LottieView source={require('../Images/98499-google (1).json')} autoPlay />
+                  </View>
+              </TouchableOpacity>
+          </View>
               
       </KeyboardAvoidingView>
       
@@ -166,6 +187,10 @@ const styles = StyleSheet.create({
         marginLeft: 26,
         marginRight: 20
     },
+    buttonContainer2:{
+        width: '90%',
+        marginTop: 30
+    },
     button: {
         backgroundColor: '#2ea3ff',
         width: "100%",
@@ -182,6 +207,17 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
     },
+    button3: {
+        backgroundColor: '#2ea3ff',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderRadius: 10,
+        marginTop: 2,
+        marginLeft: 40,
+        marginBottom: 14,
+        height: 42,
+        alignItems: 'center'
+    },
     buttonText: {
         color: 'white',
         fontWeight: '900',
@@ -196,17 +232,11 @@ const styles = StyleSheet.create({
         fontWeight: '900',
         fontSize: 16
     },
-    anim:{
-        marginBottom: 450,
-        width: 300,
-        height: 300,
-        marginLeft: 40
-    },
-    anim2: {
-        marginTop: 500,
-        width: 250,
-        height: 250,
-        marginLeft: 60
+    anim1:{
+        width: 35,
+        height: 35,
+        marginLeft: 10,
+        marginTop: 4
     },
     logo:{
         justifyContent: 'center',
