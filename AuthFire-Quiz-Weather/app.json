@@ -23,11 +23,11 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/eaglocLogo.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#101b6c"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/eaglocLogo.png"
     }
   }
 }
