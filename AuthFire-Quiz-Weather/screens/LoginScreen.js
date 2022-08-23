@@ -22,19 +22,13 @@ const LoginScreen = () => {
        const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
                 navigation.navigate("Home")
-                
             }
         })
         return unsubscribe
     } , [])
 
     const handleSignUp = () =>{
-        auth.createUserWithEmailAndPassword(email, password).then(userCredentials => 
-            {
-                const user = userCredentials.user;
-            console.log('Registered with :',user.email)
-            })
-            .catch(error => alert(error.message))
+       navigation.navigate("SignUp")
     }
 
     const handleLogin = () => {
@@ -122,7 +116,7 @@ const LoginScreen = () => {
        <Text style={styles.buttonOutlineText}>Sign up</Text>
        </TouchableOpacity>
       </View>
-          <View style={{ flexDirection: 'row', marginTop: 38, width: '90%', marginLeft: 20 }}>
+          <View style={{ flexDirection: 'row', marginTop: 32, width: '79%', marginLeft: 39 }}>
               <View style={{ backgroundColor: '#00ffdd', height: 2, flex: 1, alignSelf: 'center'}} />
               <Text style={{ alignSelf: 'center', paddingHorizontal: 5, fontSize: 16, color: '#00ffdd' }}>or</Text>
               <View style={{ backgroundColor: '#00ffdd', height: 2, flex: 1, alignSelf: 'center' }} />
@@ -174,7 +168,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f7f8f8',
         paddingHorizontal: 15,
         paddingVertical: 10,
-        borderRadius: 5,
+        borderRadius: 7,
         marginTop: 2,
         marginLeft: 40,
         marginBottom: 14,
@@ -199,7 +193,7 @@ const styles = StyleSheet.create({
         width: "100%",
         marginLeft: 15,
         padding: 8,
-        borderRadius: 5,
+        borderRadius: 7,
         alignItems: 'center',
     },
     button2: {
@@ -207,14 +201,14 @@ const styles = StyleSheet.create({
         width: "100%",
         marginLeft: 15,
         padding: 8,
-        borderRadius: 5,
+        borderRadius: 7,
         alignItems: 'center',
     },
     button3: {
         backgroundColor: '#2ea3ff',
         paddingHorizontal: 15,
         paddingVertical: 10,
-        borderRadius: 5,
+        borderRadius: 7,
         marginTop: 2,
         marginLeft: 40,
         marginBottom: 14,
