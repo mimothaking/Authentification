@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AuthFirebase",
-    "slug": "AuthFirebase",
+    "name": "EagLoc",
+    "slug": "EagLoc",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/eaglocLogo.png",

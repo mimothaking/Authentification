@@ -13,7 +13,7 @@ const SignUp = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [loading, setLoading] = useState(true)
+   {/*const [loading, setLoading] = useState(true)*/} 
 
     const navigation = useNavigation()
 
