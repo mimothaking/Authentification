@@ -35,11 +35,7 @@ const SignUp = () => {
     }
 
     const handleLogin = () => {
-        auth.signInWithEmailAndPassword(email, password).then(userCredentials => {
-            const user = userCredentials.user;
-            console.log('LoggedIn with :', user.email)
-        })
-            .catch(error => alert(error.message))
+        navigation.navigate("Login")
     }
   
 
@@ -59,6 +55,12 @@ const SignUp = () => {
                     placeholderTextColor="#2ea3ff"
                 />
                 <TextInput placeholder='Password'
+                    value={password} onChangeText={text => setPassword(text)}
+                    style={styles.input}
+                    placeholderTextColor="#2ea3ff"
+                    secureTextEntry
+                />
+                <TextInput placeholder='Enter password again'
                     value={password} onChangeText={text => setPassword(text)}
                     style={styles.input}
                     placeholderTextColor="#2ea3ff"
@@ -128,43 +130,30 @@ const styles = StyleSheet.create({
         marginTop: 30
     },
     button: {
-        backgroundColor: '#2ea3ff',
-        width: "100%",
-        marginLeft: 15,
-        padding: 8,
-        borderRadius: 7,
-        alignItems: 'center',
-    },
-    button2: {
         backgroundColor: '#fff',
         width: "100%",
         marginLeft: 15,
         padding: 8,
         borderRadius: 7,
         alignItems: 'center',
-    },
-    button3: {
-        backgroundColor: '#2ea3ff',
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        borderRadius: 7,
-        marginTop: 2,
-        marginLeft: 40,
-        marginBottom: 14,
-        height: 42,
-        alignItems: 'center'
-    },
-    buttonText: {
-        color: 'white',
-        fontWeight: '900',
-        fontSize: 16
-    },
-    buttonOutline: {
         borderColor: '#2ea3ff',
         borderWidth: 1.5,
     },
-    buttonOutlineText: {
+    button2: {
+        backgroundColor: '#2ea3ff',
+        width: "100%",
+        marginLeft: 15,
+        padding: 8,
+        borderRadius: 7,
+        alignItems: 'center',
+    },
+    buttonText: {
         color: '#2ea3ff',
+        fontWeight: '900',
+        fontSize: 16
+    },
+    buttonOutlineText: {
+        color: '#fff',
         fontWeight: '900',
         fontSize: 16
     },
